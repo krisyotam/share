@@ -1,0 +1,55 @@
+/* =============================================================================
+   SHARE — DESIGN LANGUAGE (mirrors krisyotam/tools)
+   HSL tokens. Lora · Inter · JetBrains Mono.
+   Spec: .claude/CLAUDE.md · reference: ~/dev/tools/index.html
+   ============================================================================= */
+
+:root {
+  --bg:         0 0% 100%;
+  --fg:         0 0% 20%;
+  --fg-dim:     0 0% 35%;
+  --muted:      0 0% 92%;
+  --muted-fg:   0 0% 50%;
+  --border:     0 0% 88%;
+  --rule:       0 0% 82%;
+  --accent:     0 0% 96%;
+
+  /* Diff semantics — narrow exception to the monochrome rule. */
+  --add-bg:     142 35% 95%;
+  --add-fg:     142 45% 30%;
+  --add-rule:   142 28% 80%;
+  --remove-bg:    0 40% 96%;
+  --remove-fg:    0 50% 38%;
+  --remove-rule:  0 28% 84%;
+
+  --serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+  --sans:  'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+
+html.dark {
+  --bg:         0 0% 7%;
+  --fg:         0 0% 96%;
+  --fg-dim:     0 0% 78%;
+  --muted:      0 0% 12%;
+  --muted-fg:   0 0% 60%;
+  --border:     0 0% 17%;
+  --rule:       0 0% 22%;
+  --accent:     0 0% 11%;
+}
+html.dark { color-scheme: dark; }
+
+/* No-JS dark fallback */
+@media (prefers-color-scheme: dark) {
+  html:not(.dark):not(.light) {
+    color-scheme: dark;
+    --bg:         0 0% 7%;
+    --fg:         0 0% 96%;
+    --fg-dim:     0 0% 78%;
+    --muted:      0 0% 12%;
+    --muted-fg:   0 0% 60%;
+    --border:     0 0% 17%;
+    --rule:       0 0% 22%;
+    --accent:     0 0% 11%;
+  }
+}
