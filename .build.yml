@@ -1,0 +1,15 @@
+image: alpine/edge
+secrets:
+  - stargate_ssh
+tasks:
+  - deploy: |
+      ssh -o StrictHostKeyChecking=no krisyotam@73.50.72.176 '
+        set -eu
+        cd ~/dev/share
+        git fetch --quiet origin
+        git reset --hard origin/main
+        npm ci --silent
+        npm run build
+        rsync -a --delete dist/ /mnt/storage/share/
+        echo "share rebuilt and deployed"
+      '
